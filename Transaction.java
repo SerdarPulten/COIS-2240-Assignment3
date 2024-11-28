@@ -1,6 +1,9 @@
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;   
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class Transaction {
 	
@@ -14,10 +17,6 @@ public class Transaction {
 			instance = new Transaction();
 		}
 		return instance;
-	}
-	
-	public static void displayTransactionHistory() {
-		System.out.println("Temp Display");
 	}
 
     // Perform the borrowing of a book
@@ -62,7 +61,23 @@ public class Transaction {
     	}catch (Exception e) {
     		System.out.println("error saving file");
     	}
-    	
+    }
+    
+    public void displayTransactionHistory() {
+    	try {
+    		//code based on digitalocean
+    		//https://www.digitalocean.com/community/tutorials/java-read-file-line-by-line
+    		BufferedReader transactions = new BufferedReader(new FileReader("transactions.txt"));
+    		String line = transactions.readLine();
+    		while (line != null) {
+    			System.out.println(line);
+    			line =transactions.readLine();
+    		}
+    		
+    		
+    	}catch (Exception e) {
+    		System.out.println("error reading file");
+    	}
     	
     }
 }

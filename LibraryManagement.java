@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class LibraryManagement {
     private Library library = new Library();
 
@@ -33,6 +34,11 @@ public class LibraryManagement {
                 case 1:
                     System.out.print("Enter member ID: ");
                     int id = scanner.nextInt();
+                    if (library.findMemberById(id)!= null) {
+                    	System.out.println("ID already exists");
+                    	break;
+                    }
+                    
                 	System.out.print("Enter member name: ");
                     String name = scanner.next();
                     
@@ -45,6 +51,10 @@ public class LibraryManagement {
                 case 2:
                     System.out.print("Enter book ID: ");
                     id = scanner.nextInt();
+                    if (library.findBookById(id)!= null) {
+                    	System.out.println("ID already exists");
+                    	break;
+                    }
                 	System.out.print("Enter book title: ");
                     String title = scanner.next();
                     
@@ -118,7 +128,7 @@ public class LibraryManagement {
                     }
                     break;
                 case 6:
-                	Transaction.displayTransactionHistory();
+                	Transaction.tTransacon().displayTransactionHistory();
                     break;
                 case 7:
                     System.out.println("Exiting. Good Bye..");
@@ -129,4 +139,5 @@ public class LibraryManagement {
             }
         }
     }
+    
 }
