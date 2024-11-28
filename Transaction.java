@@ -14,6 +14,10 @@ public class Transaction {
 		}
 		return instance;
 	}
+	
+	public static void displayTransactionHistory() {
+		System.out.println("Temp Display");
+	}
 
     // Perform the borrowing of a book
     public boolean borrowBook(Book book, Member member) {
