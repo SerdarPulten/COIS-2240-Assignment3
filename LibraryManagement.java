@@ -34,10 +34,6 @@ public class LibraryManagement {
                 case 1:
                     System.out.print("Enter member ID: ");
                     int id = scanner.nextInt();
-                    if (library.findMemberById(id)!= null) {
-                    	System.out.println("ID already exists");
-                    	break;
-                    }
                     
                 	System.out.print("Enter member name: ");
                     String name = scanner.next();
@@ -46,23 +42,17 @@ public class LibraryManagement {
 
                     Member newMember = new Member(id, name);
                     library.addMember(newMember);
-                    System.out.println("Member added successfully.");
                     break;
                 case 2:
                     System.out.print("Enter book ID: ");
                     id = scanner.nextInt();
-                    if (library.findBookById(id)!= null) {
-                    	System.out.println("ID already exists");
-                    	break;
-                    }
                 	System.out.print("Enter book title: ");
                     String title = scanner.next();
                     
                     scanner.nextLine();
 
                     Book newBook = new Book(id, title);
-                    library.addBook(newBook);
-                    System.out.println("Book added to library successfully.");
+                    library.addBook(newBook);                    
                     break;
                 case 3:
                 	System.out.println("\n--- Available Members ---");
